@@ -120,8 +120,14 @@
     display:block;
     margin-bottom: 4px;
   }
-  .tb-cell .value{ font-size: 14.5px; }
+  .tb-cell .value{ font-size: 14.5px; display:block; }
   .tb-cell .value a{ text-decoration-color: var(--bp-line); }
+  .tb-cell .value.relocating{
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--bp-accent-bright);
+    margin-top: 4px;
+  }
 
   @media (max-width: 640px){
     .tb-grid{ grid-template-columns: 1fr; }
@@ -340,6 +346,7 @@
         <div class="tb-cell">
           <span class="label">Location</span>
           <span class="value">Phnom Penh, Cambodia</span>
+          <span class="value relocating">→ Relocating to Seattle, WA (open to other US locations)</span>
         </div>
         <div class="tb-cell">
           <span class="label">Contact</span>
