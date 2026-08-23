@@ -420,19 +420,19 @@
           <li>Led migration from Kata containers to Sysbox runtime; authored initial Kata Helm charts and node pool integration, then drove Sysbox adoption including version upgrades through 0.6.6-0 and cgroupsv2 migration</li>
           <li>Integrated KEDA HTTP Addon for response-based pod autoscaling; added HPA container resource metrics support for right-sizing workloads across the platform</li>
           <li>Managed Istio service mesh rollout on GKE (VirtualService routing, AuthorizationPolicy, ingress gateway with Google Private CA, sidecar injection control, migration of istiod to DaemonSet), then led migration to Istio ambient mode (istio-base, istio-cni, ztunnel) and Gateway API adoption on the newer OKE platform</li>
-          <li>Integrated Ceph via Rook operator to provide ReadWriteMany (RWX) persistent storage for job and cronjob workloads on GKE; later upgraded Rook-Ceph to 1.20.1 on OKE with a dedicated ceph-csi-drivers chart</li>
-          <li>Drove Kubernetes version upgrades through 1.34, resolving compatibility issues in warmpod and stateless deployment controllers across each upgrade cycle</li>
-          <li>Designed Network Policy Manager providing dynamic, namespace-scoped network policies with service-to-service allow/deny rules, blocking metadata and SMTP access from customer namespaces; later adopted Kyverno for policy enforcement (mutating disk provisioning, sysbox runtime exemptions) on OKE</li>
-          <li>Implemented kernel-level exploit mitigations across cluster nodes via node-initializer scripts in response to newly disclosed CVEs</li>
-          <li>Extended the core database platform: PostgreSQL read replica support and pg_cron scheduling, Redis/Valkey/KeyDB replication and PVC snapshots, and a database-stats collection pipeline with automated image builds</li>
+          <li>Integrated Ceph via Rook operator to provide ReadWriteMany (RWX) persistent storage for job and cronjob workloads on GKE; later upgraded Rook-Ceph to 1.20.1 on OKE with a dedicated CSI driver chart</li>
+          <li>Drove Kubernetes version upgrades through 1.34, resolving compatibility issues in internal pod-provisioning and stateless deployment controllers across each upgrade cycle</li>
+          <li>Designed a dynamic, namespace-scoped network policy system with service-to-service allow/deny rules, blocking metadata and SMTP access from customer namespaces; later adopted Kyverno for policy enforcement (mutating disk provisioning, sysbox runtime exemptions) on OKE</li>
+          <li>Implemented kernel-level exploit mitigations across cluster nodes via automated node bootstrap tooling in response to newly disclosed CVEs</li>
+          <li>Extended the core database platform: PostgreSQL read replica support and pg_cron scheduling, Redis/Valkey/KeyDB replication and PVC snapshots, and a database metrics collection pipeline with automated image builds</li>
           <li>Deployed Prometheus, Alertmanager, and VictoriaMetrics for cluster-wide observability, integrating External Secrets Operator for credential delivery and Kubernetes event streaming to Pub/Sub</li>
-          <li>Built and maintained GKE cluster management tooling (gke.sh) and GCP Artifact Registry CI/CD workflows for Helm chart and image sync</li>
+          <li>Built and maintained GKE cluster management tooling and GCP Artifact Registry CI/CD workflows for Helm chart and image sync</li>
           <li>Authored and extended Ansible playbooks for LXD container provisioning and multi-environment site lifecycle management (staging, clone, push-to-live, backup, sleep), domain and SSH access, database password rotation, and Logstash pipeline configuration across the hosting fleet</li>
           <li>Developed GCP Cloud Functions for GKE pod eviction cleanup, NetworkPolicy compliance alerting, and BunnyCDN edge IP synchronization into GCP firewall allowlists</li>
           <li>Led the migration of Kinsta's App Hosting and Database platform (rebranded Sevalla) from GKE to a new multi-cluster OCI/OKE architecture, building the OKE infrastructure from the ground up via an Argo CD app-of-apps pattern (ApplicationSets/AppProjects), with operational tooling to pause/resume ApplicationSet sync and toggle self-heal during rollouts</li>
-          <li>Implemented Karpenter-based node autoprovisioning on OCI (karpenter-provider-oci and karpenter-nodepool charts), covering build/workload/mgmt node pools, hardened pod security contexts, and sysbox-runtime node labeling</li>
-          <li>Built oke-disk-controller for OCI block volume provisioning with snapshot CRD support, and warmpod/tekton-warmpod Helm charts to provide pre-warmed build/CI capacity on OKE</li>
-          <li>Built deprecated-api-checker and network-access-check services for automated cluster compliance auditing; authored a kopf-based Kubernetes operator for web-terminal job lifecycle events and Tekton Helm charts for cluster CI workloads</li>
+          <li>Implemented Karpenter-based node autoprovisioning on OCI, covering build/workload/mgmt node pools, hardened pod security contexts, and sysbox-runtime node labeling</li>
+          <li>Built a custom OCI block volume provisioning controller with snapshot CRD support, and pre-warmed build/CI capacity tooling on OKE</li>
+          <li>Built automated cluster compliance auditing services (deprecated API usage checks, network access policy checks); authored a kopf-based Kubernetes operator for web-terminal job lifecycle events and Tekton-based CI infrastructure for cluster workloads</li>
         </ul>
       </article>
 
