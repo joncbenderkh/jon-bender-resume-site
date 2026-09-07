@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Jon Bender — Platform Engineer</title>
-<meta name="description" content="Jon Bender — Platform Engineer. Operates multi-tenant Kubernetes platforms: cluster-fleet lifecycle, service mesh, tenant isolation, node security, and a ground-up GKE→OCI migration." />
+<meta name="description" content="Jon Bender — Platform Engineer. Operates multi-tenant Kubernetes platforms: Helm chart surface, GitOps and platform services, cluster-fleet lifecycle, service mesh, tenant isolation, and node security." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%232F5D62'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='58' fill='%23FAFAF7' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -248,7 +248,7 @@
       <a href="mailto:joncbender@gmail.com">joncbender@gmail.com</a>
       <a href="https://github.com/joncbenderkh">github.com/joncbenderkh</a>
     </div>
-    <p class="summary">Platform engineer, 16+ years across Linux systems and Kubernetes. Operates a multi-tenant Kubernetes PaaS at Kinsta — led its ground-up migration from GKE to a multi-cluster OCI architecture, and owns cluster-fleet lifecycle, service mesh, tenant isolation, and node security. Individual contributor by choice.</p>
+    <p class="summary">Platform engineer, 16+ years across Linux systems and Kubernetes. Operates a multi-tenant Kubernetes PaaS at Kinsta — authored its Helm chart surface, led the platform layer of its GKE→OKE migration, and owns cluster-fleet lifecycle, service mesh, tenant isolation, and node security. AI-assisted engineering as the default working mode. Individual contributor by choice.</p>
   </header>
 
   <div class="layout">
@@ -261,6 +261,10 @@
     <div class="skill-group">
       <div class="skill-cat">Platforms</div>
       <div class="skill-items">GKE, OKE / OCI, Argo CD, Tekton</div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">IaC / delivery</div>
+      <div class="skill-items">Terraform (operations), GitHub Actions, Helm, Kustomize</div>
     </div>
     <div class="skill-group">
       <div class="skill-cat">Observability</div>
@@ -297,16 +301,18 @@
         <div class="dates">Jul 2021 — Present</div>
       </div>
       <ul>
-        <li>Led the ground-up migration of Kinsta's application and database platform (Sevalla) from GKE to a multi-cluster OCI/OKE architecture — cluster topology, infrastructure built from scratch as an Argo CD app-of-apps (ApplicationSets / AppProjects), and operational tooling to pause/resume sync and toggle self-heal for safe phased rollouts</li>
-        <li>Owns the multi-tenant PaaS platform surface: 30+ Helm charts across managed databases (PostgreSQL v9–v16, MySQL / MariaDB, Redis / Valkey / KeyDB, MongoDB), stateless and stateful workloads, and site-lifecycle operations (staging, clone, push-to-live, backup, sleep) across the hosting fleet</li>
-        <li>Drove Kubernetes version upgrades through 1.34, resolving controller and API compatibility issues in the internal pod-provisioning and stateless-deployment paths each cycle</li>
-        <li>Ran Istio end to end on GKE (routing, AuthorizationPolicy, Private CA ingress gateway, sidecar control, istiod-to-DaemonSet), then led the migration to ambient mode (istio-cni, ztunnel) and Gateway API on OKE</li>
-        <li>Led the container-runtime migration from Kata to Sysbox — version upgrades through 0.6.6-0, the cgroups v2 transition, and the runtime Helm charts and node-pool integration</li>
-        <li>Hardened multi-tenant isolation: namespace-scoped network policy (blocked metadata and SMTP egress from customer namespaces), Kyverno enforcement, and automated node-bootstrap tooling for kernel-level CVE mitigations across the fleet</li>
+        <li>Authored ~29 Helm charts for Kinsta's multi-tenant PaaS: managed databases (PostgreSQL v9–v16, MySQL / MariaDB, Redis / Valkey / KeyDB, MongoDB), stateless and stateful workloads, CronJobs, ingress, Envoy, and the networkpolicy-manager</li>
+        <li>Led the platform layer of Kinsta's GKE→OKE migration (Sevalla): the Argo CD app-of-apps (ApplicationSets / AppProjects) and the full platform-services set — Istio (incl. sidecar→ambient), Rook-Ceph, Karpenter, VictoriaMetrics, Kyverno, External Secrets, Velero, Alertmanager — deployed onto a new multi-cluster OCI architecture built by a partner team, with sync / self-heal tooling for safe phased rollouts</li>
+        <li>Tuned the platform services for production: Karpenter disruption budgets and nomination windows, VictoriaMetrics cluster HA, Kyverno admission replicas and PDBs, Alertmanager routing, Rook-Ceph mgr metrics; documented the entire ApplicationSet structure</li>
+        <li>Drove Kubernetes version upgrades through 1.35, resolving controller and API compatibility issues in the internal pod-provisioning and stateless-deployment paths each cycle</li>
+        <li>Ran the Istio service mesh end to end on GKE (routing, AuthorizationPolicy, Private CA ingress gateway, sidecar control, istiod-to-DaemonSet), then led the migration to ambient mode (istio-cni, ztunnel) and Gateway API on OKE</li>
+        <li>Led the container-runtime migration from Kata to Sysbox — version upgrades through 0.6.6-0 and the cgroups v2 transition — and authored the runtime Helm charts and node-pool integration</li>
+        <li>Hardened multi-tenant isolation: the namespace-scoped network-policy model (blocked metadata and SMTP egress from customer namespaces), Kyverno enforcement, and automated node-bootstrap tooling for kernel-level CVE mitigations</li>
         <li>Integrated Rook-Ceph for ReadWriteMany persistent storage on GKE; upgraded to Rook-Ceph 1.20.1 on OKE with a dedicated ceph-csi driver chart</li>
-        <li>Built platform autoscaling: Karpenter node autoprovisioning on OCI (build / workload / mgmt pools, hardened pod security contexts), KEDA response-based pod autoscaling, and HPA resource-metrics right-sizing</li>
+        <li>Built workload autoscaling into the platform: KEDA HTTP Add-on for response-based pod scaling and HPA container-resource metrics for right-sizing</li>
         <li>Deployed Prometheus, Alertmanager, and VictoriaMetrics for cluster-wide observability, with External Secrets Operator for credential delivery and Kubernetes event streaming to Pub/Sub</li>
-        <li>Wrote platform software in Go and Python: <span class="mono">oke-disk-controller</span> (Go / controller-runtime) labels nodes by attached <span class="mono">oci-bv</span> volume count so a Kyverno policy keeps PVC-bound pods off nodes at OKE's CSI attach limit; a kopf operator for web-terminal job lifecycle; deprecated-API and network-policy compliance auditors; Tekton CI infrastructure for cluster workloads</li>
+        <li>Wrote platform software in Go and Python: <span class="mono">oke-disk-controller</span> (Go / controller-runtime) labels nodes by attached <span class="mono">oci-bv</span> volume count so a Kyverno policy keeps PVC-bound pods off nodes at OKE's CSI attach limit; a kopf operator for web-terminal job lifecycle; deprecated-API and network-access compliance auditors; Tekton CI infrastructure</li>
+        <li>Operate the OKE Terraform estate day to day — cluster version upgrades, node-pool lifecycle and drain tuning, IAM policy, landing-zone and bastion changes — within a partner-authored module structure and a GitHub Actions plan/apply pipeline with production approval gates</li>
       </ul>
     </article>
 
