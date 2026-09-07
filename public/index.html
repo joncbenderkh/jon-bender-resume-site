@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Jon Bender — Infrastructure Engineer</title>
-<meta name="description" content="Jon Bender — Senior DevOps / Infrastructure Engineer. 25+ years from bare-metal Unix systems to Kubernetes, service mesh, and multi-cloud PaaS platforms." />
+<title>Jon Bender — Platform Engineer</title>
+<meta name="description" content="Jon Bender — Platform Engineer. Operates multi-tenant Kubernetes platforms: cluster-fleet lifecycle, service mesh, tenant isolation, node security, and a ground-up GKE→OCI migration." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%232F5D62'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='58' fill='%23FAFAF7' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -72,7 +72,7 @@
 
   /* ---------- Header ---------- */
   header.hero{
-    margin-bottom: 56px;
+    margin-bottom: 52px;
   }
   h1.name{
     font-size: clamp(2.1rem, 5.5vw, 2.75rem);
@@ -96,6 +96,12 @@
   .meta .relocating{ color: var(--accent-soft); }
   .meta a{ color: var(--ink-dim); }
   .meta a:hover{ color: var(--accent-soft); }
+  .summary{
+    margin: 24px 0 0;
+    max-width: 64ch;
+    font-size: 1.02rem;
+    color: var(--ink);
+  }
 
   /* ---------- Section scaffolding ---------- */
   h2{
@@ -196,13 +202,6 @@
     border-radius: 50%;
     background: var(--line);
   }
-  .job.compact ul{ display: block; }
-  .job.compact li{ display: inline; margin-right: 0; padding-left: 0; }
-  .job.compact li::before{ display: none; }
-  .job.compact li:not(:last-child)::after{
-    content: " · ";
-    color: var(--ink-dim);
-  }
 
   footer{
     margin-top: 72px;
@@ -241,41 +240,47 @@
 
   <header class="hero">
     <h1 class="name">Jon Bender</h1>
-    <p class="role">Senior DevOps / Infrastructure Engineer — Kubernetes · Platform · Cloud</p>
+    <p class="role">Platform Engineer — Kubernetes · multi-tenant infrastructure</p>
     <div class="meta">
-      <span>Phnom Penh, Cambodia</span>
-      <span class="relocating">→ Relocating to Seattle, WA (open to other US locations)</span>
-      <span>Remote preferred</span>
+      <span>Currently Phnom Penh (UTC+7)</span>
+      <span class="relocating">→ relocating to the US, Seattle area, 2026</span>
+      <span>Remote or hybrid</span>
       <a href="mailto:joncbender@gmail.com">joncbender@gmail.com</a>
+      <a href="https://github.com/joncbenderkh">github.com/joncbenderkh</a>
     </div>
+    <p class="summary">Platform engineer, 16+ years across Linux systems and Kubernetes. Operates a multi-tenant Kubernetes PaaS at Kinsta — led its ground-up migration from GKE to a multi-cluster OCI architecture, and owns cluster-fleet lifecycle, service mesh, tenant isolation, and node security. Individual contributor by choice.</p>
   </header>
 
   <div class="layout">
   <aside class="skills" id="skills">
     <h2>Skills</h2>
     <div class="skill-group">
-      <div class="skill-cat">Orchestration</div>
-      <div class="skill-items">Kubernetes, Helm, Kustomize, Istio, Kyverno, KEDA, Karpenter</div>
+      <div class="skill-cat">Kubernetes</div>
+      <div class="skill-items">Helm, Kustomize, Istio (ambient), Gateway API, Kyverno, KEDA, Karpenter, Rook-Ceph</div>
     </div>
     <div class="skill-group">
       <div class="skill-cat">Platforms</div>
-      <div class="skill-items">GKE, OKE (OCI), Argo CD, Tekton, GitLab, Jenkins</div>
+      <div class="skill-items">GKE, OKE / OCI, Argo CD, Tekton</div>
     </div>
     <div class="skill-group">
-      <div class="skill-cat">Data stores</div>
-      <div class="skill-items">PostgreSQL, MySQL, MariaDB, Redis, Valkey, KeyDB, MongoDB, CouchDB, Elasticsearch</div>
+      <div class="skill-cat">Observability</div>
+      <div class="skill-items">Prometheus, Alertmanager, VictoriaMetrics, External Secrets Operator</div>
     </div>
     <div class="skill-group">
       <div class="skill-cat">Languages</div>
-      <div class="skill-items">Python, Bash, Perl, Go (working)</div>
-    </div>
-    <div class="skill-group">
-      <div class="skill-cat">Config / IaC</div>
-      <div class="skill-items">Ansible, Jira, Confluence</div>
+      <div class="skill-items">Go, Python, Bash</div>
     </div>
     <div class="skill-group">
       <div class="skill-cat">Systems</div>
-      <div class="skill-items">Linux (RHEL, Ubuntu), Solaris, HP-UX, VMware, Proxmox, AWS, GCP, OCI</div>
+      <div class="skill-items">Linux (RHEL, Ubuntu), Sysbox &amp; Kata runtimes, cgroups v2, Ansible</div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">Data services</div>
+      <div class="skill-items">PostgreSQL, MySQL / MariaDB, Redis / Valkey, MongoDB</div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">Cloud</div>
+      <div class="skill-items">GCP, OCI, AWS</div>
     </div>
   </aside>
 
@@ -283,7 +288,7 @@
     <h2>Experience</h2>
 
     <div class="era">
-      <div class="eyebrow">Cloud-native platform &amp; Kubernetes</div>
+      <div class="eyebrow">Kubernetes &amp; platform engineering</div>
     </div>
 
     <article class="job">
@@ -292,23 +297,16 @@
         <div class="dates">Jul 2021 — Present</div>
       </div>
       <ul>
-        <li>Designed and maintained 30+ Helm charts for a multi-tenant PaaS hosting platform on GKE, covering databases (PostgreSQL v9–v16, MySQL, MariaDB, Redis, Valkey, KeyDB, MongoDB), stateless/stateful applications, CronJobs, jobs, and migrations</li>
-        <li>Led migration from Kata containers to Sysbox runtime; authored initial Kata Helm charts and node pool integration, then drove Sysbox adoption including version upgrades through 0.6.6-0 and cgroupsv2 migration</li>
-        <li>Integrated KEDA HTTP Addon for response-based pod autoscaling; added HPA container resource metrics support for right-sizing workloads across the platform</li>
-        <li>Managed Istio service mesh rollout on GKE (VirtualService routing, AuthorizationPolicy, ingress gateway with Google Private CA, sidecar injection control, migration of istiod to DaemonSet), then led migration to Istio ambient mode (istio-base, istio-cni, ztunnel) and Gateway API adoption on the newer OKE platform</li>
-        <li>Integrated Ceph via Rook operator to provide ReadWriteMany (RWX) persistent storage for job and cronjob workloads on GKE; later upgraded Rook-Ceph to 1.20.1 on OKE with a dedicated CSI driver chart</li>
-        <li>Drove Kubernetes version upgrades through 1.34, resolving compatibility issues in internal pod-provisioning and stateless deployment controllers across each upgrade cycle</li>
-        <li>Designed a dynamic, namespace-scoped network policy system with service-to-service allow/deny rules, blocking metadata and SMTP access from customer namespaces; later adopted Kyverno for policy enforcement (mutating disk provisioning, sysbox runtime exemptions) on OKE</li>
-        <li>Implemented kernel-level exploit mitigations across cluster nodes via automated node bootstrap tooling in response to newly disclosed CVEs</li>
-        <li>Extended the core database platform: PostgreSQL read replica support and pg_cron scheduling, Redis/Valkey/KeyDB replication and PVC snapshots, and a database metrics collection pipeline with automated image builds</li>
-        <li>Deployed Prometheus, Alertmanager, and VictoriaMetrics for cluster-wide observability, integrating External Secrets Operator for credential delivery and Kubernetes event streaming to Pub/Sub</li>
-        <li>Built and maintained GKE cluster management tooling and GCP Artifact Registry CI/CD workflows for Helm chart and image sync</li>
-        <li>Authored and extended Ansible playbooks for LXD container provisioning and multi-environment site lifecycle management (staging, clone, push-to-live, backup, sleep), domain and SSH access, database password rotation, and Logstash pipeline configuration across the hosting fleet</li>
-        <li>Developed GCP Cloud Functions for GKE pod eviction cleanup, NetworkPolicy compliance alerting, and BunnyCDN edge IP synchronization into GCP firewall allowlists</li>
-        <li>Led the migration of Kinsta's App Hosting and Database platform (rebranded Sevalla) from GKE to a new multi-cluster OCI/OKE architecture, building the OKE infrastructure from the ground up via an Argo CD app-of-apps pattern (ApplicationSets/AppProjects), with operational tooling to pause/resume ApplicationSet sync and toggle self-heal during rollouts</li>
-        <li>Implemented Karpenter-based node autoprovisioning on OCI, covering build/workload/mgmt node pools, hardened pod security contexts, and sysbox-runtime node labeling</li>
-        <li>Built a custom OCI block volume provisioning controller with snapshot CRD support, and pre-warmed build/CI capacity tooling on OKE</li>
-        <li>Built automated cluster compliance auditing services (deprecated API usage checks, network access policy checks); authored a kopf-based Kubernetes operator for web-terminal job lifecycle events and Tekton-based CI infrastructure for cluster workloads</li>
+        <li>Led the ground-up migration of Kinsta's application and database platform (Sevalla) from GKE to a multi-cluster OCI/OKE architecture — cluster topology, infrastructure built from scratch as an Argo CD app-of-apps (ApplicationSets / AppProjects), and operational tooling to pause/resume sync and toggle self-heal for safe phased rollouts</li>
+        <li>Owns the multi-tenant PaaS platform surface: 30+ Helm charts across managed databases (PostgreSQL v9–v16, MySQL / MariaDB, Redis / Valkey / KeyDB, MongoDB), stateless and stateful workloads, and site-lifecycle operations (staging, clone, push-to-live, backup, sleep) across the hosting fleet</li>
+        <li>Drove Kubernetes version upgrades through 1.34, resolving controller and API compatibility issues in the internal pod-provisioning and stateless-deployment paths each cycle</li>
+        <li>Ran Istio end to end on GKE (routing, AuthorizationPolicy, Private CA ingress gateway, sidecar control, istiod-to-DaemonSet), then led the migration to ambient mode (istio-cni, ztunnel) and Gateway API on OKE</li>
+        <li>Led the container-runtime migration from Kata to Sysbox — version upgrades through 0.6.6-0, the cgroups v2 transition, and the runtime Helm charts and node-pool integration</li>
+        <li>Hardened multi-tenant isolation: namespace-scoped network policy (blocked metadata and SMTP egress from customer namespaces), Kyverno enforcement, and automated node-bootstrap tooling for kernel-level CVE mitigations across the fleet</li>
+        <li>Integrated Rook-Ceph for ReadWriteMany persistent storage on GKE; upgraded to Rook-Ceph 1.20.1 on OKE with a dedicated ceph-csi driver chart</li>
+        <li>Built platform autoscaling: Karpenter node autoprovisioning on OCI (build / workload / mgmt pools, hardened pod security contexts), KEDA response-based pod autoscaling, and HPA resource-metrics right-sizing</li>
+        <li>Deployed Prometheus, Alertmanager, and VictoriaMetrics for cluster-wide observability, with External Secrets Operator for credential delivery and Kubernetes event streaming to Pub/Sub</li>
+        <li>Wrote platform software in Go and Python: <span class="mono">oke-disk-controller</span> (Go / controller-runtime) labels nodes by attached <span class="mono">oci-bv</span> volume count so a Kyverno policy keeps PVC-bound pods off nodes at OKE's CSI attach limit; a kopf operator for web-terminal job lifecycle; deprecated-API and network-policy compliance auditors; Tekton CI infrastructure for cluster workloads</li>
       </ul>
     </article>
 
@@ -318,12 +316,10 @@
         <div class="dates">Nov 2018 — Jul 2021</div>
       </div>
       <ul>
-        <li>Kubernetes/Helm and Kustomize implementations for Analytics, Central-app, ICUC.Social and other projects</li>
-        <li>Automated application and infrastructure deployments using Bash and Python scripts via Jenkins</li>
-        <li>Managed backup configuration and streamlined deployments through parallelization</li>
-        <li>Rolled out MSK/Kafka and Elasticsearch; migrated infrastructure and network management to Ansible</li>
-        <li>Implemented Docker to replace Vagrant for developers; upgraded fleet from 16.04 to 18.04</li>
-        <li>Built OpenVPN access and DR implementation for Central-app; wrote Bash build scripts across microservices for development systems</li>
+        <li>Kubernetes / Helm / Kustomize implementations for Analytics, Central-app, ICUC.Social and other projects</li>
+        <li>Automated application and infrastructure deployments (Bash / Python via Jenkins); migrated infrastructure and network management to Ansible</li>
+        <li>Rolled out MSK / Kafka and Elasticsearch; built the DR implementation for Central-app</li>
+        <li>Replaced Vagrant with Docker for developers; carried the fleet upgrade from 16.04 to 18.04</li>
       </ul>
     </article>
 
@@ -333,17 +329,14 @@
         <div class="dates">Oct 2015 — Nov 2018</div>
       </div>
       <ul>
-        <li>Automated application and infrastructure deployments using Ansible and Jenkins; administered GitLab, Jira, and Confluence</li>
-        <li>Set up Vagrant and Docker deployments so developers could work in production-like environments</li>
-        <li>Migrated backups from Crashplan to Bacula, and infrastructure from Swisscom DCS (VMware Cloudsphere) to AWS</li>
-        <li>Administered Linux (Ubuntu) across AWS, Proxmox, and Swisscom Cloud; configured nginx and Apache</li>
-        <li>Deployed Redis, Elasticsearch, MySQL, and CouchDB; administered PFSense firewalls</li>
-        <li>Revamped internal infrastructure to meet development needs and ease future maintenance</li>
+        <li>Automated deployments with Ansible and Jenkins; set up Vagrant and Docker so developers worked in production-like environments</li>
+        <li>Migrated infrastructure from Swisscom DCS (VMware Cloudsphere) to AWS, and backups from Crashplan to Bacula</li>
+        <li>Administered Linux across AWS, Proxmox, and Swisscom Cloud; nginx / Apache, Redis, Elasticsearch, MySQL; PFSense firewalls</li>
       </ul>
     </article>
 
     <div class="era">
-      <div class="eyebrow">Systems &amp; Unix infrastructure</div>
+      <div class="eyebrow">Linux systems engineering</div>
     </div>
 
     <article class="job">
@@ -352,11 +345,9 @@
         <div class="dates">Jul 2013 — May 2015</div>
       </div>
       <ul>
-        <li>Performance-tuned and troubleshot Oracle DB, working with DBAs on Hugepages/kernel parameters, VMware disk layouts, and storage latency root-causing (Dynamic Tiering, SSD gaps)</li>
-        <li>Rolled out Centrify DirectControl for Active Directory authentication across all Linux servers</li>
-        <li>Led Solaris-to-Linux migrations: ported Perl scripts to Python, migrated internal web sites to Linux, moved DNS from BIND to AD</li>
-        <li>Automated server patching with Python and RHEL Satellite, coordinating schedules with environment owners around batch processes</li>
-        <li>Supported PCI compliance work with the security group, backup enablement with the TSM team, and monitoring via Microsoft SCOM with the Netmon team</li>
+        <li>Performance-tuned Oracle DB with the DBAs (hugepages, kernel parameters); root-caused storage latency across VMware disk layouts and SAN tiers</li>
+        <li>Led Solaris-to-Linux migrations — ported Perl to Python, moved internal sites and DNS (BIND → AD) onto Linux</li>
+        <li>Automated server patching with Python and RHEL Satellite around batch-process schedules; rolled out Centrify AD authentication fleet-wide</li>
       </ul>
     </article>
 
@@ -366,74 +357,9 @@
         <div class="dates">Nov 2010 — May 2013</div>
       </div>
       <ul>
-        <li>Built and supported 160+ RHEL 5/6 Linux servers, primarily on VMware; migrated development groups off Solaris and HP-UX</li>
-        <li>Managed RedHat Satellite for builds, patching, and configuration management; created a Linux Kickstart procedure using Satellite and Perl with automatic Netbackup enrollment</li>
-        <li>Automated patching via the Satellite and VMware APIs — syncing custom channels with base RHEL5/6 channels and rolling 30–40 servers per cycle in parallel, including VM upgrade reboots, in 15–20 minutes</li>
-        <li>Administered Centrify DirectControl SSO and DirectAudit; ran NFS tuning and benchmarking on RHEL6 with iozone and Perl</li>
-      </ul>
-    </article>
-
-    <article class="job">
-      <div class="job-head">
-        <div class="org">CBC Companies <span class="place">— Columbus, Ohio · 3rd Party Administrator</span></div>
-        <div class="dates">Feb 2007 — Nov 2010</div>
-      </div>
-      <ul>
-        <li>Converted 200+ mainframe Connect:Direct customers to Unix Connect:Direct, coordinating with support, sales, and networking teams on firewall/VPN changes</li>
-        <li>Built Perl automation for FTP/FTPS/SFTP/C:E/C:D file transfers across local and remote servers, with email alerting on failure</li>
-        <li>Migrated Connect:Enterprise users from mainframe to Unix C:E; implemented Control/M for distributed scheduling</li>
-        <li>Assisted the initial Axway rollout with Perl scripts for encryption, compression, and XLS translation</li>
-      </ul>
-    </article>
-
-    <div class="era">
-      <div class="eyebrow">Early hands-on &amp; field work</div>
-    </div>
-
-    <article class="job compact">
-      <div class="job-head">
-        <div class="org">Shawnee Computer <span class="place">— New Boston, Ohio · Computer Tech</span></div>
-        <div class="dates">Aug 2005 — Dec 2007</div>
-      </div>
-      <ul>
-        <li>Diagnosed and repaired customer machines</li>
-        <li>Removed viruses/spyware (AVG, Ad-Aware, Autoruns, Process Explorer)</li>
-        <li>Installed and replaced hardware; assessed customer hardware needs</li>
-        <li>Built new machines and refurbished used ones for resale</li>
-      </ul>
-    </article>
-
-    <article class="job compact">
-      <div class="job-head">
-        <div class="org">Clearcreek Construction <span class="place">— Tarlton, Ohio · Pipefitter Helper</span></div>
-        <div class="dates">Mar 2000 — Aug 2006</div>
-      </div>
-      <ul>
-        <li>Assisted installing pipe and general construction at paper plants across Ohio</li>
-      </ul>
-    </article>
-
-    <article class="job compact">
-      <div class="job-head">
-        <div class="org">3M <span class="place">— St. Paul, Minnesota · Unix Engineer</span></div>
-        <div class="dates">Aug 1999 — Jan 2000</div>
-      </div>
-      <ul>
-        <li>Ran Y2K evaluations and patches/upgrades across HP-UX 10.20 servers</li>
-        <li>Assessed security with SAINT, ISS, and nmap; hardened systems with tripwire, tcpwrappers, sshd, sudo, and abacus</li>
-        <li>Wrote and cleaned up Perl scripts for user and system administration, exposing some to the web</li>
-      </ul>
-    </article>
-
-    <article class="job compact">
-      <div class="job-head">
-        <div class="org">ZoomNet Internet Services <span class="place">— Portsmouth, Ohio · Linux Engineer</span></div>
-        <div class="dates">1997 — 1999</div>
-      </div>
-      <ul>
-        <li>Automated backups, log checking, monitoring, and web-based administration with Perl, TCL, and Bash</li>
-        <li>Kept Unix systems current with releases and security patches</li>
-        <li>Monitored Cisco/Ascend POP equipment with cmu-snmp and Perl; configured Cisco routers and Ascend terminal servers at remote POP sites</li>
+        <li>Built and ran 160+ RHEL 5/6 servers on VMware; migrated development teams off Solaris and HP-UX</li>
+        <li>Created a RHEL Satellite + Perl Kickstart build with automatic Netbackup enrollment; automated patching via the Satellite and VMware APIs — 30–40 servers per cycle in parallel, including VM upgrades and reboots</li>
+        <li>Administered Centrify SSO / DirectAudit; ran NFS tuning and benchmarking on RHEL6</li>
       </ul>
     </article>
 
