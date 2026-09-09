@@ -229,9 +229,62 @@
   .print-btn:hover{ border-color: var(--accent-soft); }
 
   @media print{
-    body{ background: #fff !important; color: #111; }
+    @page{ margin: 14mm 16mm; }
+
+    :root{
+      --bg:#fff; --bg-panel:#fff;
+      --line:#c9c7ba; --ink:#111; --ink-dim:#555;
+      --accent:#2F5D62; --accent-soft:#2F5D62; --focus:#2F5D62;
+    }
+
+    html{ scroll-behavior: auto; }
+    body{
+      background:#fff !important;
+      color:#111;
+      font-size: 10.5pt;
+      line-height: 1.42;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    a{ color:#111; text-decoration: none; }
     .print-btn{ display: none; }
-    :root{ --line:#ccc; --ink:#111; --ink-dim:#555; --accent-soft:#2F5D62; }
+
+    .wrap{ max-width:none; margin:0; padding:0; }
+
+    /* Header */
+    header.hero{ margin-bottom: 20px; }
+    h1.name{ font-size: 1.85rem; }
+    .role{ font-size: .98rem; margin-bottom: 8px; }
+    .meta{ font-size: 8.7pt; gap: 3px 14px; }
+    .summary{ margin-top: 12px; max-width:none; font-size: .96rem; }
+
+    /* CSS grid fragments badly in paged media — fall back to a linear flow */
+    .layout{ display:block; margin-top: 22px; }
+
+    /* Skills: compact definition list above experience */
+    aside.skills{ position: static; margin-bottom: 22px; }
+    aside.skills h2{ margin-bottom: 12px; }
+    .skill-group{
+      display:flex;
+      gap: 12px;
+      margin-bottom: 5px;
+      break-inside: avoid;
+    }
+    .skill-cat{ flex: 0 0 104px; margin-bottom: 0; padding-top: 1px; }
+    .skill-items{ font-size: .92rem; }
+
+    /* Experience: keep headings with their content, jobs intact */
+    h2{ break-after: avoid; margin-bottom: 14px; }
+    .era{ margin: 16px 0 8px; break-after: avoid; }
+    .era:first-child{ margin-top: 0; }
+    .job{ padding: 10px 0; break-inside: avoid; }
+    /* current role runs past a page — let it flow instead of leaving a gap */
+    #experience .job:first-of-type{ break-inside: auto; }
+    .job-head{ margin-bottom: 6px; break-after: avoid; }
+    .job li{ margin-bottom: 4px; }
+    .job li::before{ background:#b3b1a4; }
+
+    footer{ margin-top: 24px; padding-top: 12px; }
   }
 </style>
 </head>
